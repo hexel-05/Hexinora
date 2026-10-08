@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: hexinora-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hexinora
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: siadminhex
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - hexinora_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  hexinora_postgres_data:
